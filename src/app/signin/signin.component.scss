@@ -1,0 +1,121 @@
+.signin-container-parent {
+    font-family: "Work Sans", sans-serif;
+    height: 100vh;
+    position: relative;
+}
+
+.Craft-container {
+    position: absolute;
+    left: 5%;
+
+    h2 {
+        font-family: "Alfa Slab One", serif;
+    }
+
+}
+
+.signin-container {
+    width: 30%;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+}
+
+.form-container {
+    width: 100%;
+    flex: 1;
+}
+
+input {
+    outline: none;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 0px 3px transparent;
+    border-radius: 4px;
+    height: 40px;
+    width: 100%;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &:focus {
+        border: 1px solid rgba(0, 0, 255, 0.8);
+        box-shadow: 0px 0px 0px 3px rgba(0, 79, 236, 0.4);
+    }
+}
+
+.btns-container {
+    width: 100%;
+}
+
+.signin-btn {
+    border: none;
+    background-color: rgba(0, 79, 236, 1);
+    border: 2px solid transparent;
+    width: 30%;
+    height: 40px;
+    color: white;
+    font-weight: 600;
+
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &:hover {
+        border: 2px solid rgba(0, 79, 236, 1);
+        background-color: transparent;
+        color: rgba(0, 79, 236, 1);
+    }
+}
+
+
+.or-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #0b0101;
+}
+
+.or-text {
+    padding: 0 10px;
+    color: #757575;
+}
+
+.signup-btn {
+    color: rgba(0, 79, 236, 1);
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.forgot-pass {
+    cursor: pointer;
+    color: rgb(0, 79, 236);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+.google-signin-container,
+.github-signin-container {
+    border: 1px solid gray;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pass-container {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 25%;
+    right: 2%;
+    cursor: pointer;
+}
+
+.pass-input {
+    padding-right: 8% !important;
+}
