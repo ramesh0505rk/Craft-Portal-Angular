@@ -74,7 +74,8 @@ input {
     color: #757575;
 }
 
-.signup-btn {
+.signup-btn,
+.forgot-pass {
     color: rgba(0, 79, 236, 1);
     cursor: pointer;
 
@@ -83,14 +84,6 @@ input {
     }
 }
 
-.forgot-pass {
-    cursor: pointer;
-    color: rgb(0, 79, 236);
-
-    &:hover {
-        text-decoration: underline;
-    }
-}
 
 img {
     width: 20px;
