@@ -3,23 +3,38 @@
         <span>Welcome to</span>
         <h2>Craf<span style="color: #004fec;">t</span></h2>
     </div>
-    <form class="signin-container d-flex flex-column justify-content-between align-items-center">
+    <form [formGroup]="signupForm"
+        class="signin-container d-flex flex-column justify-content-between align-items-center">
         <div class="form-container d-flex flex-column p-2 gap-2">
             <div class="username-container m-0 row d-flex flex-column gap-2">
                 <label class="col-lg-12 p-0">Username</label>
-                <input class="col-lg-12 p-2" type="text" placeholder="Enter a username" />
+                <input class="col-lg-12 p-2" type="text" placeholder="Enter a username" formControlName="userName" />
+                <div *ngIf="signupForm.get('userName')?.invalid && signupForm.get('userName')?.touched"
+                    class="error p-0 d-flex">
+                    <small>Username is required*</small>
+                </div>
             </div>
             <div class="first-name-container m-0 row d-flex flex-column gap-2">
                 <label class="col-lg-12 p-0">First name</label>
-                <input class="col-lg-12 p-2" type="text" placeholder="Enter your first name" />
+                <input class="col-lg-12 p-2" type="text" placeholder="Enter your first name"
+                    formControlName="firstName" />
+                <div *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched"
+                    class="error p-0 d-flex">
+                    <small>First name is required*</small>
+                </div>
             </div>
             <div class="last-name-container m-0 row d-flex flex-column gap-2">
                 <label class="col-lg-12 p-0">Last name</label>
-                <input class="col-lg-12 p-2" type="text" placeholder="Enter you last name" />
+                <input class="col-lg-12 p-2" type="text" placeholder="Enter you last name" formControlName="lastName" />
             </div>
             <div class="email-container m-0 row d-flex flex-column gap-2">
                 <label class="col-lg-12 p-0">Email</label>
-                <input class="col-lg-12 p-2" type="email" placeholder="Enter you email address" />
+                <input class="col-lg-12 p-2" type="email" placeholder="Enter you email address"
+                    formControlName="email" />
+                <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched"
+                    class="error p-0 d-flex">
+                    <small>Enter a valid email address</small>
+                </div>
             </div>
             <div class="password-container m-0 row d-flex flex-column gap-2">
                 <label class="col-lg-12 p-0">Password</label>
@@ -29,7 +44,11 @@
                         <img *ngIf="passwordVisible" src="assets/eye-close-icon.svg" />
                     </span>
                     <input class="pass-input p-2" [type]="passwordVisible?'text':'password'"
-                        placeholder="Set up your password" />
+                        placeholder="Set up your password" formControlName="password" />
+                    <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched"
+                        class="error p-0 d-flex">
+                        <small>Password must be atleas 8 characters long</small>
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-end">
@@ -53,7 +72,8 @@
             <hr />
             <div class="btn-inner d-flex align-items-center justify-content-between p-2">
                 <span>Already have an account? <span (click)="onSignin()" class="signup-btn">Signin</span></span>
-                <button class="signin-btn" style="border-radius: 4px;">Signup</button>
+                <button class="signin-btn" style="border-radius: 4px;" type="submit"
+                    (click)="onSignup()">Signup</button>
             </div>
         </div>
     </form>

@@ -1,0 +1,37 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { catchError, Observable, throwError } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  restApiUrl = 'https://localhost:44370/api'
+
+  constructor(private readonly http: HttpClient) { }
+
+  getTokenWithSignIn(UserName: string, Password: string): Observable<any> {
+
+    var request = { UserName, Password }
+
+    return this.http.post(`${this.restApiUrl}/signin/gettoken`, request)
+      .pipe(
+        catchError((err) => {
+          return throwError(() => err)
+        })
+      )
+  }
+
+  getTokenWithSignUp(UserName: string, FirstName: string, LastName: string, UserEmail: string, Password: string) {
+    var request = { UserName, FirstName, LastName, UserEmail, Password }
+
+    return this.http.post(`${this.restApiUrl}/signup/gettoken`, request)
+      .pipe(
+        catchError(err => {
+          return throwError(() => err)
+        })
+      )
+  }
+
+}
