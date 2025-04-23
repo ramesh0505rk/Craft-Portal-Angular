@@ -24,8 +24,12 @@
             <div class="password-container m-0 row d-flex flex-column gap-2">
                 <label class="col-lg-12 p-0">Password</label>
                 <div class="col-lg-12 p-0 pass-container">
-                    <img class="eye-icon" src="assets/eye-close-icon.svg" />
-                    <input class="pass-input p-2" type="password" placeholder="Set up your password" />
+                    <span (click)="togglePasswordVisibility()" class="eye-icon d-flex">
+                        <img *ngIf="!passwordVisible" src="assets/eye-icon.svg" />
+                        <img *ngIf="passwordVisible" src="assets/eye-close-icon.svg" />
+                    </span>
+                    <input class="pass-input p-2" [type]="passwordVisible?'text':'password'"
+                        placeholder="Set up your password" />
                 </div>
             </div>
             <div class="d-flex justify-content-end">
