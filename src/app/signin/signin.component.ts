@@ -15,15 +15,27 @@ export class SigninComponent {
 
   signinForm: FormGroup
   passwordVisible: boolean = false
+  isLoading: boolean = false
 
   constructor(private router: Router, private userService: UserService) {
     this.signinForm = new FormGroup({
       userName: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)])
+      password: new FormControl('', [Validators.required])
     })
   }
 
   onSignin() {
+    this.isLoading = true
+    if (this.signinForm.invalid) {
+      this.isLoading = false
+      // Mark all fields as touched to trigger validation messages
+      Object.keys(this.signinForm.controls).forEach(key => {
+        const control = this.signinForm.get(key);
+        control?.markAsTouched();
+      });
+      return; // Stop execution if form is invalid
+    }
+
     const { userName, password } = this.signinForm.value
 
     this.userService.getTokenWithSignIn(userName, password).
@@ -31,9 +43,11 @@ export class SigninComponent {
         next: (res: any) => {
           localStorage.setItem('access_token', res.token)
           this.router.navigate(['home'])
+          this.isLoading = false
         },
         error: (err: any) => {
           console.error(err.error.message)
+          this.isLoading = false
         }
       })
   }

@@ -3,6 +3,12 @@
         <span>Welcome to</span>
         <h2>Craf<span style="color: #004fec;">t</span></h2>
     </div>
+    <div *ngIf="isLoading" class="loading-overlay d-flex justify-content-center align-items-center">
+        <div class="spinner-container d-flex flex-column align-items-center">
+            <div class="spinner"></div>
+            <b style="color: white;font-size: 20px;" class="mt-2">Logging in...</b>
+        </div>
+    </div>
     <form [formGroup]="signinForm"
         class="signin-container d-flex flex-column justify-content-between align-items-center">
         <div class="form-container d-flex flex-column p-2 gap-2">
@@ -23,10 +29,10 @@
                     </span>
                     <input class="pass-input p-2" [type]="passwordVisible?'text':'password'"
                         placeholder="Enter your password" formControlName="password" />
-                    <div *ngIf="signinForm.get('password')?.invalid && signinForm.get('password')?.touched"
-                        class="error p-0 d-flex">
-                        <small>Password must be atleas 8 characters long</small>
-                    </div>
+                </div>
+                <div *ngIf="signinForm.get('password')?.invalid && signinForm.get('password')?.touched"
+                    class="error p-0 d-flex">
+                    <small>Password is required*</small>
                 </div>
             </div>
             <div class="d-flex justify-content-end">

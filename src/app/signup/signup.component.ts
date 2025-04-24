@@ -15,6 +15,7 @@ export class SignupComponent {
 
   signupForm: FormGroup
   passwordVisible: boolean = false
+  isLoading: boolean = false
 
   constructor(private router: Router, private readonly userService: UserService) {
     this.signupForm = new FormGroup({
@@ -27,6 +28,17 @@ export class SignupComponent {
   }
 
   onSignup() {
+    this.isLoading = true
+    if (this.signupForm.invalid) {
+      this.isLoading = false
+      // Mark all fields as touched to trigger validation messages
+      Object.keys(this.signupForm.controls).forEach(key => {
+        const control = this.signupForm.get(key);
+        control?.markAsTouched();
+      });
+      return; // Stop execution if form is invalid
+    }
+
     const { userName, firstName, lastName, email, password } = this.signupForm.value
 
     this.userService.getTokenWithSignUp(userName, firstName, lastName, email, password)
@@ -34,9 +46,11 @@ export class SignupComponent {
         next: (res: any) => {
           localStorage.setItem('access_token', res.token)
           this.router.navigate(['home'])
+          this.isLoading = false
         },
         error: (err) => {
           console.error(err.error.message)
+          this.isLoading = false
         }
       }
       )
