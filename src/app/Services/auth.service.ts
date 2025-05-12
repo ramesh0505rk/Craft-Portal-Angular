@@ -7,7 +7,7 @@ import { BehaviorSubject, Subscription, timer } from 'rxjs';
 })
 export class AuthService {
   private tokenExpirationTimer: Subscription | null = null
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false)
+  public isAuthenticatedSubject = new BehaviorSubject<boolean>(false)
 
   constructor(private router: Router) {
     this.checkAuthStatus()

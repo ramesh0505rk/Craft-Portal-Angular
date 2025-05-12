@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../Services/user.service';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SignupComponent {
   passwordVisible: boolean = false
   isLoading: boolean = false
 
-  constructor(private router: Router, private readonly userService: UserService) {
+  constructor(private router: Router, private readonly userService: UserService, private authService: AuthService) {
     this.signupForm = new FormGroup({
       userName: new FormControl('', [Validators.required]),
       firstName: new FormControl('', [Validators.required]),
@@ -45,6 +46,7 @@ export class SignupComponent {
       .subscribe({
         next: (res: any) => {
           localStorage.setItem('access_token', res.token)
+          this.authService.checkAuthStatus()
           this.router.navigate(['home'])
           this.isLoading = false
         },
