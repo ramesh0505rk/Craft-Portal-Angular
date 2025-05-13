@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+.vs/Craft-Portal-Angular/v17/DocumentLayout.json
+.vs/Craft-Portal-Angular/v17/.wsuo
+.vs/Craft-Portal-Angular/FileContentIndex/b2e77c90-035d-4af6-8fd3-411cce061ac6.vsidx
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/Craft-Portal-Angular/CopilotIndices/17.13.444.19527/CodeChunks.db
+.vs/Craft-Portal-Angular/CopilotIndices/17.13.444.19527/SemanticSymbols.db
