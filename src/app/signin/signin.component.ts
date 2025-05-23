@@ -61,4 +61,8 @@ export class SigninComponent {
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible
   }
+
+  onForgotPasswordClicked() {
+    this.router.navigate(['forgot-password'])
+  }
 }
