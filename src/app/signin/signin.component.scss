@@ -1,6 +1,6 @@
 .signin-container-parent {
     font-family: "Work Sans", sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     padding: 1rem;
 }
@@ -78,7 +78,7 @@ input {
 
 .signin-btn {
     border: none;
-    background-color: rgba(0, 79, 236, 1);
+    background-color: #004fec;
     border: 2px solid transparent;
     width: 30%;
     height: 40px;
