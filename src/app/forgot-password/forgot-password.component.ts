@@ -16,6 +16,8 @@ export class ForgotPasswordComponent {
   allowEnterOtp: boolean = false;
   disableEmailAndOtpBtn: boolean = false;
 
+  email: string = '';
+
   constructor() {
     this.emailFormGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email])
@@ -23,13 +25,24 @@ export class ForgotPasswordComponent {
   }
 
   onGetOtp() {
+    if (this.emailFormGroup.invalid) {
+      Object.keys(this.emailFormGroup.controls).forEach(key => {
+        const control = this.emailFormGroup.get(key);
+        if (control) {
+          control.markAsTouched(); // Mark the control as touched to trigger validation messages
+        }
+      })
+      return
+    }
+
     this.allowEnterOtp = true;
     this.disableEmailAndOtpBtn = true;
-
-    const email = this.emailFormGroup.get('email')?.value;
-    console.log("OTP sent to:", email);
-
     this.emailFormGroup.get('email')?.disable();
+
+
+    this.email = this.emailFormGroup.get('email')?.value;
+    console.log("OTP sent to:", this.email);
+
 
     setTimeout(() => {
       const otpI1 = document.querySelector('input[name="otp0"]') as HTMLInputElement;
