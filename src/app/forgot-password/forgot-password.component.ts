@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,15 +13,23 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 export class ForgotPasswordComponent {
 
   emailFormGroup: FormGroup
+  otpFormGroup:FormGroup
 
   allowEnterOtp: boolean = false;
   disableEmailAndOtpBtn: boolean = false;
 
   email: string = '';
 
-  constructor() {
+  constructor(private router: Router) {
     this.emailFormGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email])
+    });
+
+    this.otpFormGroup = new FormGroup({
+      otp0: new FormControl('', [Validators.required, Validators.pattern('^[0-9]$')]),
+      otp1: new FormControl('', [Validators.required, Validators.pattern('^[0-9]$')]),
+      otp2: new FormControl('', [Validators.required, Validators.pattern('^[0-9]$')]),
+      otp3: new FormControl('', [Validators.required, Validators.pattern('^[0-9]$')])
     });
   }
 
@@ -85,5 +94,9 @@ export class ForgotPasswordComponent {
 
   onVerifyOtp() {
     console.log("OTP verified successfully!");
+  }
+
+  onBackToSignin() {
+    this.router.navigate(['/signin']);
   }
 }
