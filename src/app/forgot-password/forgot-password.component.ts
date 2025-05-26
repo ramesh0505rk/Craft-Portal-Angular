@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class ForgotPasswordComponent {
 
   emailFormGroup: FormGroup
-  otpFormGroup:FormGroup
+  otpFormGroup: FormGroup
+  otpError: string | null = null;
 
   allowEnterOtp: boolean = false;
   disableEmailAndOtpBtn: boolean = false;
@@ -93,7 +94,20 @@ export class ForgotPasswordComponent {
   }
 
   onVerifyOtp() {
-    console.log("OTP verified successfully!");
+    // console.log("OTP verified successfully!");
+    var otp = ''
+    for (let i = 0; i < 4; i++) {
+      const input = this.otpFormGroup.get(`otp${i}`)?.value;
+      if (input) {
+        otp += input;
+      } else {
+        console.error(`OTP input ${i} is empty`);
+        this.otpError = 'Please enter all digits of the OTP.';
+        return;
+      }
+    }
+
+    console.log("OTP entered:", otp);
   }
 
   onBackToSignin() {
