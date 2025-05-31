@@ -39,7 +39,7 @@ export class ForgotPasswordComponent {
       Object.keys(this.emailFormGroup.controls).forEach(key => {
         const control = this.emailFormGroup.get(key);
         if (control) {
-          control.markAsTouched(); // Mark the control as touched to trigger validation messages
+          control.markAsTouched();
         }
       })
       return
@@ -94,7 +94,16 @@ export class ForgotPasswordComponent {
   }
 
   onVerifyOtp() {
-    // console.log("OTP verified successfully!");
+    if (this.otpFormGroup.invalid) {
+      Object.keys(this.otpFormGroup.controls).forEach(key => {
+        const control = this.otpFormGroup.get(key);
+        if (control) {
+          control.markAsTouched();
+        }
+      })
+      return;
+    }
+
     var otp = ''
     for (let i = 0; i < 4; i++) {
       const input = this.otpFormGroup.get(`otp${i}`)?.value;
@@ -106,7 +115,6 @@ export class ForgotPasswordComponent {
         return;
       }
     }
-
     console.log("OTP entered:", otp);
   }
 
