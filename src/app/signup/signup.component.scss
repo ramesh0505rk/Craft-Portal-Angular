@@ -41,8 +41,13 @@
     position: absolute;
     left: 5%;
 
-    h2 {
-        font-family: "Alfa Slab One", serif;
+    h1 {
+        // font-family: "Alfa Slab One", serif;
+        // font-family: "Badeen Display", system-ui;
+        font-family: "Yellowtail", cursive;
+        // color: rgb(166, 161, 161);
+        color: #004fec;
+        font-size: 3rem;
     }
 
 }

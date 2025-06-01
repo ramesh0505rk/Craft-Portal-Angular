@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OtpService } from '../Services/otp.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,18 +11,20 @@ import { Router } from '@angular/router';
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.scss'
 })
-export class ForgotPasswordComponent {
+export class ForgotPasswordComponent implements DoCheck {
 
   emailFormGroup: FormGroup
   otpFormGroup: FormGroup
   otpError: string | null = null;
+  isGetOtpLoading: boolean = false;
+  isVerifyOtpLoading: boolean = false;
 
   allowEnterOtp: boolean = false;
   disableEmailAndOtpBtn: boolean = false;
 
   email: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private otpService: OtpService) {
     this.emailFormGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email])
     });
@@ -34,7 +37,14 @@ export class ForgotPasswordComponent {
     });
   }
 
+  ngDoCheck(): void {
+    if (this.emailFormGroup.invalid) {
+      this.otpError = null
+    }
+  }
+
   onGetOtp() {
+    this.isGetOtpLoading = true;
     if (this.emailFormGroup.invalid) {
       Object.keys(this.emailFormGroup.controls).forEach(key => {
         const control = this.emailFormGroup.get(key);
@@ -45,19 +55,28 @@ export class ForgotPasswordComponent {
       return
     }
 
-    this.allowEnterOtp = true;
     this.disableEmailAndOtpBtn = true;
     this.emailFormGroup.get('email')?.disable();
-
-
     this.email = this.emailFormGroup.get('email')?.value;
+    this.otpService.requestOtp(this.email).subscribe({
+      next: (res: any) => {
+        this.allowEnterOtp = true;
+        this.isGetOtpLoading = false;
+        setTimeout(() => {
+          const otpI1 = document.querySelector('input[name="otp0"]') as HTMLInputElement;
+          otpI1.focus();
+        }, 100);
+      },
+      error: (err: any) => {
+        this.isGetOtpLoading = false;
+        this.disableEmailAndOtpBtn = false;
+        this.emailFormGroup.get('email')?.enable();
+        console.log(err?.error.message)
+        this.otpError = err?.error.message || 'Failed to send OTP. Please try again.';
+      }
+    });
+
     console.log("OTP sent to:", this.email);
-
-
-    setTimeout(() => {
-      const otpI1 = document.querySelector('input[name="otp0"]') as HTMLInputElement;
-      otpI1.focus();
-    }, 100);
   }
 
   onOtpInput(event: KeyboardEvent, index: number) {
@@ -107,15 +126,27 @@ export class ForgotPasswordComponent {
     var otp = ''
     for (let i = 0; i < 4; i++) {
       const input = this.otpFormGroup.get(`otp${i}`)?.value;
-      if (input) {
+      if (input)
         otp += input;
-      } else {
-        console.error(`OTP input ${i} is empty`);
-        this.otpError = 'Please enter all digits of the OTP.';
-        return;
-      }
     }
     console.log("OTP entered:", otp);
+  }
+
+  onPasteOtp(event: ClipboardEvent) {
+    event.preventDefault();
+
+    const pastedData = event.clipboardData?.getData('text') || '';
+    const otpDigits = pastedData?.trim().slice(0, 4).split('')
+
+    otpDigits.forEach((digit, index) => {
+      if (this.otpFormGroup.get(`otp${index}`)) {
+        this.otpFormGroup.get(`otp${index}`)?.setValue(digit)
+      }
+    })
+
+    const lastIndex = otpDigits.length - 1;
+    const lastInput=document.querySelector(`input[name="otp${lastIndex}"]`) as HTMLInputElement;
+    lastInput?.focus();
   }
 
   onBackToSignin() {
