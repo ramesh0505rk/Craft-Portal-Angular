@@ -52,6 +52,7 @@ export class ForgotPasswordComponent implements DoCheck {
           control.markAsTouched();
         }
       })
+      this.isGetOtpLoading = false;
       return
     }
 

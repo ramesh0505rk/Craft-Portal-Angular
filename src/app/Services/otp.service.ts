@@ -17,4 +17,7 @@ export class OtpService {
           return throwError(() => err);
         }));
   }
+  validateOtp(email: string, otp: string) {
+  }
+
 }
