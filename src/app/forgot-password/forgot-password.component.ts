@@ -114,6 +114,7 @@ export class ForgotPasswordComponent implements DoCheck {
   }
 
   onVerifyOtp() {
+    this.isVerifyOtpLoading = true;
     if (this.otpFormGroup.invalid) {
       Object.keys(this.otpFormGroup.controls).forEach(key => {
         const control = this.otpFormGroup.get(key);
@@ -121,6 +122,7 @@ export class ForgotPasswordComponent implements DoCheck {
           control.markAsTouched();
         }
       })
+      this.isVerifyOtpLoading = false;
       return;
     }
 
@@ -131,6 +133,19 @@ export class ForgotPasswordComponent implements DoCheck {
         otp += input;
     }
     console.log("OTP entered:", otp);
+
+    this.otpService.validateOtp(this.email, otp).subscribe({
+      next: (res: any) => {
+        this.isVerifyOtpLoading = false;
+        console.log("OTP verified successfully:", res);
+        this.router.navigate(['/reset-password'])
+      },
+      error: (err: any) => {
+        this.isVerifyOtpLoading = false;
+        console.log("OTP verification failed:", err);
+      }
+    });
+
   }
 
   onPasteOtp(event: ClipboardEvent) {
@@ -146,7 +161,7 @@ export class ForgotPasswordComponent implements DoCheck {
     })
 
     const lastIndex = otpDigits.length - 1;
-    const lastInput=document.querySelector(`input[name="otp${lastIndex}"]`) as HTMLInputElement;
+    const lastInput = document.querySelector(`input[name="otp${lastIndex}"]`) as HTMLInputElement;
     lastInput?.focus();
   }
 

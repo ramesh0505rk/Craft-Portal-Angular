@@ -18,6 +18,11 @@ export class OtpService {
         }));
   }
   validateOtp(email: string, otp: string) {
+    return this.http.post(`${this.restApiUrl}/resetpassword/validateOtp`, { Email: email, Otp: otp })
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          return throwError(() => err);
+        }));
   }
 
 }
