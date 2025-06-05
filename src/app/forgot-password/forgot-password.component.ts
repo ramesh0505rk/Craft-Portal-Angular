@@ -15,14 +15,19 @@ export class ForgotPasswordComponent implements DoCheck {
 
   emailFormGroup: FormGroup
   otpFormGroup: FormGroup
-  otpError: string | null = null;
-  isGetOtpLoading: boolean = false;
-  isVerifyOtpLoading: boolean = false;
+  resetFormGroup: FormGroup
 
-  allowEnterOtp: boolean = false;
-  disableEmailAndOtpBtn: boolean = false;
-
+  otpError: string | null = null
   email: string = '';
+
+  isGetOtpLoading: boolean = false
+  isVerifyOtpLoading: boolean = false
+  passwordVisible: boolean = false
+  allowEnterOtp: boolean = false
+  disableEmailAndOtpBtn: boolean = false
+
+
+  currentState: 'Otp' | 'Reset' = 'Reset'
 
   constructor(private router: Router, private otpService: OtpService) {
     this.emailFormGroup = new FormGroup({
@@ -35,6 +40,11 @@ export class ForgotPasswordComponent implements DoCheck {
       otp2: new FormControl('', [Validators.required, Validators.pattern('^[0-9]$')]),
       otp3: new FormControl('', [Validators.required, Validators.pattern('^[0-9]$')])
     });
+
+    this.resetFormGroup = new FormGroup({
+      newPassword: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$')]),
+    });
+
   }
 
   ngDoCheck(): void {
@@ -63,6 +73,7 @@ export class ForgotPasswordComponent implements DoCheck {
       next: (res: any) => {
         this.allowEnterOtp = true;
         this.isGetOtpLoading = false;
+        this.otpError = null;
         setTimeout(() => {
           const otpI1 = document.querySelector('input[name="otp0"]') as HTMLInputElement;
           otpI1.focus();
@@ -138,7 +149,7 @@ export class ForgotPasswordComponent implements DoCheck {
       next: (res: any) => {
         this.isVerifyOtpLoading = false;
         console.log("OTP verified successfully:", res);
-        this.router.navigate(['/reset-password'])
+        // this.router.navigate(['/reset-password'])
       },
       error: (err: any) => {
         this.isVerifyOtpLoading = false;
@@ -165,7 +176,36 @@ export class ForgotPasswordComponent implements DoCheck {
     lastInput?.focus();
   }
 
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
   onBackToSignin() {
     this.router.navigate(['/signin']);
   }
+
+  get newPassword(): string {
+    return this.resetFormGroup.get('newPassword')?.value || '';
+  }
+
+  get hasUppercase(): boolean {
+    return /[A-Z]/.test(this.newPassword);
+  }
+
+  get hasLowercase(): boolean {
+    return /[a-z]/.test(this.newPassword);
+  }
+
+  get hasNumber(): boolean {
+    return /[0-9]/.test(this.newPassword);
+  }
+
+  get hasMinLength(): boolean {
+    return this.newPassword.length >= 8;
+  }
+
+  onResetPassword() {
+    
+  }
+
 }
