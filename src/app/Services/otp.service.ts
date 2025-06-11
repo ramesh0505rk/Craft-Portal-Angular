@@ -17,6 +17,7 @@ export class OtpService {
           return throwError(() => err);
         }));
   }
+  
   validateOtp(email: string, otp: string) {
     return this.http.post(`${this.restApiUrl}/resetpassword/validateOtp`, { Email: email, Otp: otp })
       .pipe(
@@ -25,4 +26,11 @@ export class OtpService {
         }));
   }
 
+  resetPassword(email: string, newPassword: string, otp: string) {
+    return this.http.patch(`${this.restApiUrl}/resetpassword`, { Email: email, NewPassword: newPassword, Otp: otp })
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          return throwError(() => err);
+        }));
+  }
 }

@@ -26,8 +26,7 @@ export class ForgotPasswordComponent implements DoCheck {
   allowEnterOtp: boolean = false
   disableEmailAndOtpBtn: boolean = false
 
-
-  currentState: 'Otp' | 'Reset' = 'Reset'
+  currentState: 'Otp' | 'Reset' = 'Otp'
 
   constructor(private router: Router, private otpService: OtpService) {
     this.emailFormGroup = new FormGroup({
@@ -149,14 +148,13 @@ export class ForgotPasswordComponent implements DoCheck {
       next: (res: any) => {
         this.isVerifyOtpLoading = false;
         console.log("OTP verified successfully:", res);
-        // this.router.navigate(['/reset-password'])
+        this.currentState = 'Reset';
       },
       error: (err: any) => {
         this.isVerifyOtpLoading = false;
         console.log("OTP verification failed:", err);
       }
     });
-
   }
 
   onPasteOtp(event: ClipboardEvent) {
@@ -205,7 +203,14 @@ export class ForgotPasswordComponent implements DoCheck {
   }
 
   onResetPassword() {
-    
+    this.otpService.resetPassword(this.email, this.newPassword, this.otpFormGroup.value.otp0 + this.otpFormGroup.value.otp1 + this.otpFormGroup.value.otp2 + this.otpFormGroup.value.otp3).subscribe({
+      next: (res: any) => {
+        console.log("Password reset successfully:", res);
+        this.router.navigate(['/signin']);
+      },
+      error: (err: any) => {
+        console.log("Password reset failed:", err);
+      }
+    });
   }
-
 }

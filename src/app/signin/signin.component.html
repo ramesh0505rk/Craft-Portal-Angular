@@ -12,9 +12,14 @@
     <form [formGroup]="signinForm"
         class="signin-container d-flex flex-column justify-content-between align-items-center">
         <div class="form-container d-flex flex-column p-2 gap-2">
+            <div class="signin-header d-flex flex-column m-0">
+                <h3 style="font-weight: bold;color: #004fec;" class="signin-title mb-2">Sign In</h3>
+                <hr class="m-0" />
+            </div>
             <div class="userName-container m-0 d-flex flex-column gap-2">
                 <label class="p-0">Email</label>
-                <input class="p-2" type="type" placeholder="Enter your username or email address" formControlName="userName" />
+                <input class="p-2" type="type" placeholder="Enter your username or email address"
+                    formControlName="userName" />
                 <div *ngIf="signinForm.get('userName')?.invalid && signinForm.get('userName')?.touched"
                     class="error p-0 d-flex">
                     <small>Username is required*</small>
