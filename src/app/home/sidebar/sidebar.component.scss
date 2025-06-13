@@ -1,8 +1,27 @@
-.sidebar{
+.sidebar {
     width: 250px;
-    background-color: #f8f9fa;
-    min-height: 100vh;
+    height: calc(100vh - 50px);
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
+    overflow: auto;
+    border-right: 1px solid #e0e0e0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 10px 10px;
+    margin: 0;
+}
+
+.sidebar li {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    padding: 10px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: #F0F1F2;
+    }
 }
