@@ -1,12 +1,13 @@
-.layout{
+.layout {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: "Work Sans", sans-serif;
 }
 
-.main-content{
+.main-content {
     margin-left: 250px;
     margin-top: 50px;
-    height: calc(100vh - 50px); 
+    height: calc(100vh - 50px);
     padding: 20px;
 }
