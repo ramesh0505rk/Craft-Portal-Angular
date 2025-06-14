@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--primary-border);
 }
 
 input {
@@ -24,7 +24,7 @@ input {
 
 .topbar-logo {
     font-family: "Yellowtail", cursive;
-    color: #004fec;
+    // color: #004fec;
     font-size: 28px;
     cursor: pointer;
 }
@@ -33,7 +33,7 @@ input {
 .topbar-right-actions {
     width: 15%;
     height: 70%;
-    background-color: rebeccapurple;
+    // background-color: rebeccapurple;
     padding: 10px;
 }
 
@@ -50,7 +50,6 @@ input {
 .search-container {
     flex: 1;
     position: relative;
-    // background-color: yellow;
     height: 100%;
     input{
         padding-left: 2rem;
@@ -61,7 +60,7 @@ input {
 
 
 .create-container {
-    width: 15%;
+    width: 12%;
     height: 100%;
     border-radius: 4px;
     background-color: #004fec;
@@ -86,7 +85,8 @@ input {
 
 .collapse-container{
     cursor: pointer;
-    background-color: red;
+    padding: 10px;
+    // background-color: red;
 }
 
 .search-icon{

@@ -1,37 +1,9 @@
-<nav class="sidebar">
-    <ul>
+<nav class="sidebar" [ngClass]="{'collapsed': isCollapsed}">
+    <ul class="sidebar-list d-flex flex-column gap-1">
         <li routerLink="/home/dashboard" routerLinkActive="active">Dashboard</li>
-        <li routerLink="/home/settings" routerLinkActive="active"><a class="nav-link">Settings</a></li>
+        <li routerLink="/home/settings" routerLinkActive="active">Settings</li>
+        <!-- <li><a routerLink="/home/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/home/settings" routerLinkActive="active">Settings</a></li> -->
         <li (click)="onSignOut()">Sign Out</li>
-        <!-- <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li>
-        <li><a routerLink="/home/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a></li>
-        <li><a routerLink="/home/settings" routerLinkActive="active" class="nav-link">Settings</a></li>
-        <li><a (click)="onSignOut()" class="nav-link">Sign Out</a></li> -->
     </ul>
 </nav>

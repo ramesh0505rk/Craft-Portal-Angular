@@ -5,7 +5,19 @@
     top: 50px;
     left: 0;
     overflow: auto;
-    border-right: 1px solid #e0e0e0;
+    border-right: 1px solid var(--primary-border);
+    transition: left 0.3s ease-in-out;
+
+    &.collapsed {
+        left: -250px;
+    }
+}
+
+.sidebar li {
+    &.active {
+        background-color: #F0F1F2;
+        font-weight: 500;
+    }
 }
 
 .sidebar ul {
@@ -21,6 +33,7 @@
     padding: 10px 10px;
     border-radius: 4px;
     cursor: pointer;
+
     &:hover {
         background-color: #F0F1F2;
     }

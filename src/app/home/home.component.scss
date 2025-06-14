@@ -10,4 +10,9 @@
     margin-top: 50px;
     height: calc(100vh - 50px);
     padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+
+    &.collapsed {
+        margin-left: 0;
+    }
 }
