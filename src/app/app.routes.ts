@@ -21,6 +21,10 @@ export const routes: Routes = [
                 loadComponent: () => import('./home/dashboard/dashboard.component').then(m => m.DashboardComponent)
             },
             {
+                path: 'projects',
+                loadComponent: () => import('./home/projects/projects.component').then(m => m.ProjectsComponent)
+            },
+            {
                 path: 'settings',
                 loadComponent: () => import('./home/settings/settings.component').then(m => m.SettingsComponent)
             }
