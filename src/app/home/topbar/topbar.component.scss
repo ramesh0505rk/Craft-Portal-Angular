@@ -22,11 +22,25 @@ input {
     }
 }
 
+.collapse-container{
+    cursor: pointer;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 25px;
+        height: 25px;
+    }
+}
+
 .topbar-logo {
     font-family: "Yellowtail", cursive;
     // color: #004fec;
     font-size: 28px;
     cursor: pointer;
+    width: 60px;
 }
 
 .topbar-left-actions,
@@ -81,12 +95,6 @@ input {
     width: 30px;
     height: 30px;
     border-radius: 50px;
-}
-
-.collapse-container{
-    cursor: pointer;
-    padding: 10px;
-    // background-color: red;
 }
 
 .search-icon{

@@ -4,7 +4,7 @@
             <img *ngIf="!isCollapsed" src="assets/sidebar-collapse.svg" />
             <img *ngIf="isCollapsed" src="assets/sidebar-expand.svg" />
         </div>
-        <div class="topbar-logo">
+        <div class="topbar-logo" (click)="onLogoClick()">
             Craft
         </div>
     </div>

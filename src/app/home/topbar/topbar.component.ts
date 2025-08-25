@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { SidebarService } from '../../Services/sidebar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -12,10 +13,14 @@ import { SidebarService } from '../../Services/sidebar.service';
 export class TopbarComponent {
   isCollapsed = false;
 
-  constructor(private sidebarService: SidebarService) { }
+  constructor(private sidebarService: SidebarService, private router: Router) { }
 
   onCollapseSidebar() {
     this.isCollapsed = !this.isCollapsed;
     this.sidebarService.setCollapsed(this.isCollapsed);
+  }
+
+  onLogoClick() {
+    this.router.navigate([''])
   }
 }
