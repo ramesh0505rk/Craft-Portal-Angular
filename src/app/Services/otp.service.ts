@@ -11,7 +11,7 @@ export class OtpService {
   constructor(private http: HttpClient) { }
 
   requestOtp(email: string) {
-    return this.http.post(`${this.restApiUrl}/resetpassword/requestotp`, { Email: email })
+    return this.http.post(`${this.restApiUrl}/otp/requestotp`, { UserEmail: email })
       .pipe(
         catchError((err: HttpErrorResponse) => {
           return throwError(() => err);

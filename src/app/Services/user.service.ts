@@ -16,7 +16,7 @@ export class UserService {
 
     var request = { UserName, Password }
 
-    return this.http.post(`${this.restApiUrl}/signin/gettoken`, request)
+    return this.http.post(`${this.restApiUrl}/user/signin`, request)
       .pipe(
         catchError((err) => {
           return throwError(() => err)
@@ -27,7 +27,7 @@ export class UserService {
   getTokenWithSignUp(UserName: string, FirstName: string, LastName: string, UserEmail: string, Password: string) {
     var request = { UserName, FirstName, LastName, UserEmail, Password }
 
-    return this.http.post(`${this.restApiUrl}/signup/gettoken`, request)
+    return this.http.post(`${this.restApiUrl}/user/signup`, request)
       .pipe(
         catchError(err => {
           return throwError(() => err)

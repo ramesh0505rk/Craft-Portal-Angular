@@ -42,7 +42,7 @@ export class SigninComponent {
     this.userService.getTokenWithSignIn(userName, password).
       subscribe({
         next: (res: any) => {
-          localStorage.setItem('access_token', res.token)
+          localStorage.setItem('access_token', res.accessToken)
           this.authService.checkAuthStatus()
           this.router.navigate(['home'])
           this.isLoading = false

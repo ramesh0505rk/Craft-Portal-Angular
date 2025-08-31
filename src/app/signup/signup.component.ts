@@ -45,7 +45,7 @@ export class SignupComponent {
     this.userService.getTokenWithSignUp(userName, firstName, lastName, email, password)
       .subscribe({
         next: (res: any) => {
-          localStorage.setItem('access_token', res.token)
+          localStorage.setItem('access_token', res.accessToken)
           this.authService.checkAuthStatus()
           this.router.navigate(['home'])
           this.isLoading = false
