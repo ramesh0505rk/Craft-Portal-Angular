@@ -48,7 +48,8 @@ export class SigninComponent {
           this.isLoading = false
         },
         error: (err: any) => {
-          console.error(err.error.message)
+          // console.error(err.errors.details)
+          console.log(err.error.errors.details)
           this.isLoading = false
         }
       })

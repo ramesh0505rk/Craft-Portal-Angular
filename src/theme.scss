@@ -1,4 +1,11 @@
 :root {
-    --primary-background: white;
-    --primary-border: #DDDEDD
+    --primary-background: #FFFFFF;
+    --primary-border: #DDDEDD;
+    --primary-text: #000000;
+}
+
+.dark-theme{
+    --primary-background: #1E1E1E;
+    --primary-border: #3C3C3C;
+    --primary-text: #FFFFFF;
 }

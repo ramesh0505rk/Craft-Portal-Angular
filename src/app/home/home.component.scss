@@ -11,6 +11,8 @@
     height: calc(100vh - 50px);
     padding: 20px;
     transition: margin-left 0.3s ease-in-out;
+    background-color: var(--primary-background);
+    color: var(--primary-text);
 
     &.collapsed {
         margin-left: 0;

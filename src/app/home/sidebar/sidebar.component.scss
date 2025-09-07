@@ -6,6 +6,8 @@
     left: 0;
     overflow: auto;
     border-right: 1px solid var(--primary-border);
+    background-color: var(--primary-background);
+    color: var(--primary-text);
     transition: left 0.3s ease-in-out;
 
     &.collapsed {
