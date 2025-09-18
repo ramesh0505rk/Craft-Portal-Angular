@@ -2,10 +2,16 @@
     --primary-background: #FFFFFF;
     --primary-border: #DDDEDD;
     --primary-text: #000000;
+    --primary-list-hover-bg: #F0F1F2;
+    --primary-active-list-bg: #E9F2FE;
+    --primary-list-active-text: #1868DB;
 }
 
-.dark-theme{
-    --primary-background: #1E1E1E;
+.dark-theme {
+    --primary-background: #1F1F21;
     --primary-border: #3C3C3C;
     --primary-text: #FFFFFF;
+    --primary-list-hover-bg: #242528;
+    --primary-active-list-bg: #1C2B42;
+    --primary-list-active-text: #659CEF;
 }
