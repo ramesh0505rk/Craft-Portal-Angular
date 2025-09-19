@@ -24,6 +24,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   onSignOut() {
+    document.body.classList.remove('dark-theme')
     localStorage.removeItem('access_token')
     this.router.navigate(['signin'])
   }

@@ -45,3 +45,37 @@
         background-color: var(--primary-list-hover-bg);
     }
 }
+
+.dashboard-icon-container {
+    background-image: var(--primary-dashboard-icon);
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+}
+
+.projects-icon-container {
+    background-image: var(--primary-project-icon);
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+}
+
+.settings-icon-container {
+    background-image: var(--primary-settings-icon);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+}
+
+.signout-icon-container {
+    background-image: var(--primary-signout-icon);
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+}
+
+.menu-list {
+    display: flex;
+    gap: 4px;
+}
