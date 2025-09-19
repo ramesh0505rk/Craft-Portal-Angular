@@ -1,8 +1,9 @@
 <div class="topbar d-flex justify-content-between align-items-center">
     <div class="topbar-left-actions d-flex justify-content-start align-items-center gap-2">
         <div class="collapse-container" (click)="onCollapseSidebar()">
-            <img *ngIf="!isCollapsed" src="assets/sidebar-collapse.svg" />
-            <img *ngIf="isCollapsed" src="assets/sidebar-expand.svg" />
+            <img
+                [src]="!isCollapsed ? (isDarkThemeEnabled  ? 'assets/TopBar/sidebar-left-light.svg' : 'assets/TopBar/sidebar-left-dark.svg')
+                :(isDarkThemeEnabled ? 'assets/TopBar/sidebar-right-light.svg' : 'assets/TopBar/sidebar-right-dark.svg')" />
         </div>
         <div class="topbar-logo" (click)="onLogoClick()">
             Craft
@@ -26,7 +27,7 @@
     </div>
 
     <div class="search-container-main">
-        
+
     </div>
 
 </div>

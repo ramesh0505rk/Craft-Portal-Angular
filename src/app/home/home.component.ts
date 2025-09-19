@@ -6,6 +6,7 @@ import { SidebarService } from '../Services/sidebar.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../Services/user.service';
 import { UserSettingsService } from '../Services/user-settings.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   isSidebarCollapsed = false;
   userID: any
+  darkThemeEnabled: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private readonly router: Router, private sidebarService: SidebarService, private userService: UserService, private userSettingsService: UserSettingsService) { }
 
@@ -38,10 +40,11 @@ export class HomeComponent implements OnInit {
       next: (res: any) => {
         if (res.darkTheme) {
           document.body.classList.add('dark-theme')
-          console.log("Dark Theme Enabled")
+          this.darkThemeEnabled.next(true);
         }
         else {
           document.body.classList.remove('dark-theme')
+          this.darkThemeEnabled.next(false);
         }
       },
       error: (err: any) => {

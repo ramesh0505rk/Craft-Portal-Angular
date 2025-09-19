@@ -4,11 +4,17 @@
     --primary-text: #000000;
     --primary-list-hover-bg: #F0F1F2;
     --primary-active-list-bg: #E9F2FE;
-    --primary-list-active-text: #1868DB;
+    --primary-list-active-text: #1868db;
     --primary-dashboard-icon:url('./assets/sidebar/dashboard-dark.svg');
     --primary-project-icon: url('./assets/SideBar/paper-plane-dark.svg');
     --primary-settings-icon: url('./assets/SideBar/settings-dark.svg');
     --primary-signout-icon:url('./assets/SideBar/sign-out-black.svg');
+
+    //---------------- Active menu icons ----------------
+    --primary-dashboard-icon-active:url('./assets/sidebar/dashboard-blue.svg');
+    --primary-project-icon-active: url('./assets/SideBar/paper-plane-blue.svg');
+    --primary-settings-icon-active: url('./assets/SideBar/settings-blue.svg');
+    //---------------- Active menu icons ----------------
 }
 
 .dark-theme {

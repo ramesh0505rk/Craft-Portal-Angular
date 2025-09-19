@@ -1,25 +1,22 @@
 <nav class="sidebar" [ngClass]="{'collapsed': isCollapsed}">
     <ul class="sidebar-list d-flex flex-column gap-1">
-        <li class="menu-list" routerLink="/home/dashboard" routerLinkActive="active">
+        <li class="d-flex gap-1 dashboard-menu" routerLink="/home/dashboard" routerLinkActive="active">
             <div class="dashboard-icon-container">
             </div>
             <div>Dashboard</div>
         </li>
-        <li class="menu-list" routerLink="/home/projects" routerLinkActive="active">
+        <li class="d-flex gap-1 projects-menu" routerLink="/home/projects" routerLinkActive="active">
             <div class="projects-icon-container">
-
             </div>
             <div>Projects</div>
         </li>
-        <li class="menu-list" routerLink="/home/settings" routerLinkActive="active">
+        <li class="d-flex gap-1 settings-menu" routerLink="/home/settings" routerLinkActive="active">
             <div class="settings-icon-container">
-
             </div>
             <div>Settings</div>
         </li>
-        <li class="menu-list"(click)="onSignOut()">
+        <li class="d-flex gap-1" (click)="onSignOut()">
             <div class="signout-icon-container">
-
             </div>
             <div>Sign Out</div>
         </li>
