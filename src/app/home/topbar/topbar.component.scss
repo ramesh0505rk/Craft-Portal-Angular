@@ -99,22 +99,12 @@ input {
 }
 
 .search-icon{
+    background-image: var(--primary-search-icon);
+    background-size: contain;
+    width: 16px;
+    height: 16px;
     position: absolute;
-    height: 50%;
     top: 25%;
     left: 0;
-    padding-left: 8px;
-}
-
-.search-container-main{
-    // position: absolute;
-    // top: 60px;
-    // left: 50%;
-    // transform: translateX(-50%);
-    // width: 300px;
-    // background-color: var(--primary-background);
-    // border: 1px solid var(--primary-border);
-    // border-radius: 4px;
-    // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    // padding: 10px;
+    margin-left: 0.5rem;
 }

@@ -5,16 +5,21 @@
     --primary-list-hover-bg: #F0F1F2;
     --primary-active-list-bg: #E9F2FE;
     --primary-list-active-text: #1868db;
-    --primary-dashboard-icon:url('./assets/sidebar/dashboard-dark.svg');
+
+    //---------------- Dark menu icons ----------------
+    --primary-dashboard-icon: url('./assets/sidebar/dashboard-dark.svg');
     --primary-project-icon: url('./assets/SideBar/paper-plane-dark.svg');
     --primary-settings-icon: url('./assets/SideBar/settings-dark.svg');
-    --primary-signout-icon:url('./assets/SideBar/sign-out-black.svg');
+    --primary-signout-icon: url('./assets/SideBar/sign-out-black.svg');
+    //---------------- Dark menu icons ----------------
 
     //---------------- Active menu icons ----------------
-    --primary-dashboard-icon-active:url('./assets/sidebar/dashboard-blue.svg');
+    --primary-dashboard-icon-active: url('./assets/sidebar/dashboard-blue.svg');
     --primary-project-icon-active: url('./assets/SideBar/paper-plane-blue.svg');
     --primary-settings-icon-active: url('./assets/SideBar/settings-blue.svg');
     //---------------- Active menu icons ----------------
+
+    --primary-search-icon: url('./assets/search.svg');
 }
 
 .dark-theme {
@@ -24,8 +29,14 @@
     --primary-list-hover-bg: #242528;
     --primary-active-list-bg: #1C2B42;
     --primary-list-active-text: #659CEF;
-    --primary-dashboard-icon:url('./assets/sidebar/dashboard-light.svg');
+
+    //---------------- Light menu icons ----------------
+    --primary-dashboard-icon: url('./assets/sidebar/dashboard-light.svg');
     --primary-project-icon: url('./assets/SideBar/paper-plane-light.svg');
     --primary-settings-icon: url('./assets/SideBar/settings-light.svg');
-    --primary-signout-icon:url('./assets/SideBar/sign-out-light.svg');
+    --primary-signout-icon: url('./assets/SideBar/sign-out-light.svg');
+    //---------------- Light menu icons ----------------
+
+    --primary-search-icon: url('./assets/TopBar/search-light.svg');
+
 }
