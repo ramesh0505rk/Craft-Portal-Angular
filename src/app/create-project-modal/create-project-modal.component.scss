@@ -1,0 +1,11 @@
+.modal-container {
+    background-color: var(--primary-background);
+    color: var(--primary-text); 
+    font-family: "Work Sans", sans-serif;
+    border: 1px solid var(--primary-border);
+    border-radius: 5px;
+}
+
+.create-project-modal-header{
+    border-bottom: 1px solid var(--primary-border);
+}

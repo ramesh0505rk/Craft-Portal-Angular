@@ -6,20 +6,23 @@
     --primary-active-list-bg: #E9F2FE;
     --primary-list-active-text: #1868db;
 
-    //---------------- Dark menu icons ----------------
+    //---------------- Dark menu icons (SideBar) ----------------
     --primary-dashboard-icon: url('./assets/sidebar/dashboard-dark.svg');
     --primary-project-icon: url('./assets/SideBar/paper-plane-dark.svg');
     --primary-settings-icon: url('./assets/SideBar/settings-dark.svg');
     --primary-signout-icon: url('./assets/SideBar/sign-out-black.svg');
-    //---------------- Dark menu icons ----------------
+    //---------------- Dark menu icons (SideBar) ----------------
 
-    //---------------- Active menu icons ----------------
+    //---------------- Active menu icons (SideBar) ----------------
     --primary-dashboard-icon-active: url('./assets/sidebar/dashboard-blue.svg');
     --primary-project-icon-active: url('./assets/SideBar/paper-plane-blue.svg');
     --primary-settings-icon-active: url('./assets/SideBar/settings-blue.svg');
-    //---------------- Active menu icons ----------------
+    //---------------- Active menu icons (SideBar) ----------------
 
+    //---------------- TopBar ----------------
     --primary-search-icon: url('./assets/search.svg');
+    --primary-search-background: #ffffff;
+    //---------------- TopBar ----------------
 }
 
 .dark-theme {
@@ -30,13 +33,16 @@
     --primary-active-list-bg: #1C2B42;
     --primary-list-active-text: #659CEF;
 
-    //---------------- Light menu icons ----------------
+    //---------------- Light menu icons (SideBar) ----------------
     --primary-dashboard-icon: url('./assets/sidebar/dashboard-light.svg');
     --primary-project-icon: url('./assets/SideBar/paper-plane-light.svg');
     --primary-settings-icon: url('./assets/SideBar/settings-light.svg');
     --primary-signout-icon: url('./assets/SideBar/sign-out-light.svg');
-    //---------------- Light menu icons ----------------
+    //---------------- Light menu icons (SideBar) ----------------
 
+    //---------------- TopBar ----------------
     --primary-search-icon: url('./assets/TopBar/search-light.svg');
+    --primary-search-background: #1F1F21;
+    //---------------- TopBar ----------------
 
 }

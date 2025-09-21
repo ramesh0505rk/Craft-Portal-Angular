@@ -12,9 +12,10 @@
     <div class="topbar-center-actions d-flex justify-content-between align-items-center">
         <div class="search-container">
             <div class="search-icon"></div>
-            <input type="text" placeholder="Search (ctrl + /)" />
+            <input class="search-input" type="text" placeholder="Search (ctrl + /)" />
         </div>
-        <div class="create-container d-flex justify-content-center align-items-center">
+        <div (click)="openCreateProjectModal()"
+            class="create-container d-flex justify-content-center align-items-center">
             <span>
                 + Create
             </span>
@@ -25,9 +26,10 @@
 
         </div>
     </div>
+    <app-create-project-modal class="create-project-modal" *ngIf="createProjectModalActive"
+        [(createProjectActive)]="createProjectModalActive"></app-create-project-modal>
 
     <div class="search-container-main">
 
     </div>
-
 </div>
