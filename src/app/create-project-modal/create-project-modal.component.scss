@@ -8,4 +8,20 @@
 
 .create-project-modal-header{
     border-bottom: 1px solid var(--primary-border);
+    padding: 12px;
+}
+
+.close-button{
+    width: 18px;
+    height: 18px;
+    background-image: var(--primary-close-icon-grey);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: background-image 0.3s ease-in-out;
+
+    &:hover {
+        background-image: var(--primary-close-icon-red);
+    }
 }

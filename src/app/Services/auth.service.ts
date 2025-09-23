@@ -72,6 +72,7 @@ export class AuthService {
   }
 
   logout() {
+    document.body.classList.remove('dark-theme')
     localStorage.removeItem('access_token')
 
     this.isAuthenticatedSubject.next(false)

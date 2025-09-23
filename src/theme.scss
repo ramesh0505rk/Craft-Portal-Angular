@@ -23,6 +23,11 @@
     --primary-search-icon: url('./assets/search.svg');
     --primary-search-background: #ffffff;
     //---------------- TopBar ----------------
+
+    //---------------- Common Icons ----------------
+    --primary-close-icon-grey: url('./assets/close-circle-grey.svg');
+    --primary-close-icon-red: url('./assets/close-circle-red.svg');
+    //---------------- Common Icons ----------------
 }
 
 .dark-theme {
@@ -45,4 +50,6 @@
     --primary-search-background: #1F1F21;
     //---------------- TopBar ----------------
 
+    //---------------- Common Icons ----------------
+    //---------------- Common Icons ----------------
 }
