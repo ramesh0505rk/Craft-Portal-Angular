@@ -1,17 +1,23 @@
 .modal-container {
     background-color: var(--primary-background);
-    color: var(--primary-text); 
+    //  background-color: rgba(var(--primary-background), 1);
+    // backdrop-filter: blur(10px);
+    color: var(--primary-text);
     font-family: "Work Sans", sans-serif;
     border: 1px solid var(--primary-border);
     border-radius: 5px;
 }
 
-.create-project-modal-header{
+.create-project-modal-header {
     border-bottom: 1px solid var(--primary-border);
     padding: 12px;
 }
 
-.close-button{
+.create-project-modal-body{
+    padding: 12px;
+}
+
+.close-button {
     width: 18px;
     height: 18px;
     background-image: var(--primary-close-icon-grey);
